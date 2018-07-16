@@ -289,6 +289,7 @@ func (mp *master) fetch() {
 		mp.warnf("failed to run temp binary: %s (%s) output \"%s\"", err, tmpBinPath, tokenOut)
 		return
 	}
+	tokenOut = tokenOut[len(tokenOut)-len(tokenIn) : len(tokenOut)]
 	if tokenIn != string(tokenOut) {
 		mp.warnf("sanity check failed")
 		return
